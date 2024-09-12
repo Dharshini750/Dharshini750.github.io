@@ -1,0 +1,120 @@
+*{
+    margin:0;
+    padding: 0;
+}
+*::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #f5f5dc;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #f3f384;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #f5c382;
+    border-radius: 10px;
+}
+body{
+    background-color: beige;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.container1{
+    width:210mm;
+    height: 100%;
+    display: flex;
+    background-color:burlywood ;
+    align-items: center;
+    flex-direction: column;
+}
+.section1, .section2, .section3, .section4, .section5{
+    width: 90%;
+    padding: 1rem;
+}
+.section1{
+    text-align: center;
+}
+.section-git{
+    text-align: left;
+}
+.color-black{
+    color: black;
+}
+.container {
+    display: flex;   
+    justify-content:space-between ;
+    gap: 2rem;
+}
+.box {
+    width: 30%;
+    text-align: left;
+}
+.box2{
+    width: 100%;
+    text-align: left;
+}
+.box3{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-evenly;
+}
+h1,hr{
+    margin-bottom: 0.5rem;
+}
+.contacts icons
+{
+    color: black;
+}
+.Interest ul{
+    list-style: none;
+    
+}
+hr{
+    border: 1px solid black;
+}
+ul{
+    margin-left: 2rem;
+}
+
+
+.skills-section {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .technical, .certificates{
+    width: 48%;
+  }
+  
+  .skill {
+    margin-bottom: 1rem;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .bar-fill {
+    height: 100%;
+    background-color: rgb(153, 81, 30);
+    text-align: right;
+    line-height: 15px;
+    color: white;
+    border-radius: 8px;
+  }
+.color-black{
+  color: black;
+}
+  
