@@ -27,7 +27,7 @@ body{
     align-items: flex-start;
 }
 .container1{
-    width:210mm;
+    width:250mm;
     height: 100%;
     display: flex;
     background-color:burlywood ;
