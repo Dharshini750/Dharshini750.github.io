@@ -1,7 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  server: {
+    fs: {
+      allow: [
+        'C:/Users/DHARSHINI/OneDrive/Desktop/MERN/E-cart/node_modules/@fortawesome/fontawesome-free/webfonts',
+        'C:/Users/DHARSHINI/OneDrive/Desktop/MERN/E-cart',
+        'C:/Users/DHARSHINI/OneDrive/Desktop/MERN/E-cart/node_modules/vite/dist/client',
+      ]
+    }
+  }
+});

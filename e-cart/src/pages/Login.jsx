@@ -17,7 +17,7 @@ const Login = () => {
         <form className="form" onSubmit={handleSubmit}>
           <p className="form-title">Login to your account</p>
           <div className="input-container">
-            <input type="email" placeholder="Email" required />
+            <input type="email" placeholder="Email" required autoComplete='' />
           </div>
           <div className="input-container">
             <input type="password" placeholder="Password" required />

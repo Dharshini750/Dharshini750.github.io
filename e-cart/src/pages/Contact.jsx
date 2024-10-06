@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <>
       <div className="w-full h-[92vh] primary flex justify-center items-center flex-col">
-        {/* E-Cart Culture and Innovation Section */}
+      
         <div className="w-[90%] h-[50%] flex txtc flex-col justify-center gap-8">
           <h1 className='font-bold text-2xl text-center'>E-Cart Culture</h1>
           <p className='text-center text-lg'>
@@ -19,7 +19,7 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Contact Section */}
+       
         <div className="w-[90%] h-[50%] txtc flex flex-col justify-center gap-8">
           <h1 className='font-bold text-2xl text-center'>
             Contact Us
@@ -28,7 +28,7 @@ const Contact = () => {
             Flipkart Help Center | 24x7 Customer Care Support
           </p>
 
-          {/* Contact Info */}
+          
           <ul className="flex flex-col items-center gap-6 text-center">
             <li className="flex flex-col items-center">
               <a href="mailto:ecart2024@gmail.com" className="text-lg flex items-center gap-2">

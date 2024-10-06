@@ -44,7 +44,7 @@ const Navbar = () => {
             <NavLink to="/cart">
               <FaShoppingCart size={24} className="hover:text-white hover:border-b-2 hover:border-[#38B2AC] transition duration-300" />
             </NavLink>
-            <FaSearch size={24} className=" hover:text-white hover:border-b-2 hover:border-[#38B2AC] transition duration-300" />
+           
           </div>
           </ul>
 
