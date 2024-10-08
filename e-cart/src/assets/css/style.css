@@ -7,10 +7,13 @@
     padding: 0px;
 }
 .primary{
-    background-color: #F7FAFC ;
+    background-color: #e2e2e4 ;
 }
 .accent{
     -webkit-text-fill-color: #2D3748;
+}
+.fnt{
+  font-family: cursive;
 }
 .txt{
   color: cyan;

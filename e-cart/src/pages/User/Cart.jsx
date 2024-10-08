@@ -2,48 +2,44 @@ import React, { useState } from 'react';
 
 const Cart = ({ cartItems: initialCartItems }) => {
   const [cartItems, setCartItems] = useState(initialCartItems);
-  const [quantities, setQuantities] = useState(initialCartItems.map(() => 1)); // Default quantity to 1 for each item
-  const [showBill, setShowBill] = useState(false); // To show/hide the bill after purchase
+  const [quantities, setQuantities] = useState(initialCartItems.map(() => 1)); 
+  const [showBill, setShowBill] = useState(false); 
 
-  // Function to handle quantity change
+  
   const updateQuantity = (index, amount) => {
     setQuantities(prevQuantities =>
       prevQuantities.map((quantity, i) =>
-        i === index ? Math.max(1, quantity + amount) : quantity // Ensure quantity doesn't go below 1
+        i === index ? Math.max(1, quantity + amount) : quantity 
       )
     );
   };
 
-  // Function to remove an item from the cart
   const removeFromCart = (index) => {
-    setCartItems(prevItems => prevItems.filter((_, i) => i !== index)); // Remove the item at the given index
-    setQuantities(prevQuantities => prevQuantities.filter((_, i) => i !== index)); // Remove the corresponding quantity
+    setCartItems(prevItems => prevItems.filter((_, i) => i !== index)); 
+    setQuantities(prevQuantities => prevQuantities.filter((_, i) => i !== index)); 
   };
 
-  // Function to calculate the total bill
   const calculateTotal = () => {
     return cartItems.reduce((total, item, index) => {
-      const itemPrice = parseFloat(item.price.replace('$', '')); // Convert price to number
+      const itemPrice = parseFloat(item.price.replace('$', '')); 
       return total + itemPrice * quantities[index];
     }, 0).toFixed(2);
   };
-
-  // Function to handle purchase
+ 
   const handlePurchase = () => {
-    setShowBill(true); // Display the bill after purchase
+    setShowBill(true); 
   };
-
   return (
-    <div className="primary">
-      <div style={{ padding: '20px' }}>
+    <div className="w-[100%] h-[100%] flex flex-col justify-center items-center primary fnt">
+      <div style={{ padding: '40px',alignItems:"center" }}>
         {cartItems.length > 0 ? (
           <div>
             {cartItems.map((item, index) => (
-              <div key={index} style={{ marginBottom: '10px', border: '1px solid #ddd', padding: '10px' }}>
+              <div key={index} style={{ marginBottom: '20px', border: '2px solid #ddd', padding: '20px' }}>
                 <img
                   src={item.image}
                   alt={item.name}
-                  style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+                  style={{ width: '100px', height: '100px', objectFit:'contain' }}
                 />
                 <h2>{item.name}</h2>
                 <p>{item.price}</p>
@@ -52,7 +48,7 @@ const Cart = ({ cartItems: initialCartItems }) => {
                   <p>Quantity:</p>
                   <button
                     onClick={() => updateQuantity(index, -1)}
-                    style={{ marginLeft: '10px', padding: '5px', cursor: 'pointer' }}
+                    style={{ marginLeft: '20px', padding: '5px', cursor: 'pointer' }}
                   >
                     -
                   </button>
@@ -80,8 +76,7 @@ const Cart = ({ cartItems: initialCartItems }) => {
                 </button>
               </div>
             ))}
-            {/* Purchase Button */}
-            <button
+            <button className='flex justify-center items-center'
               onClick={handlePurchase}
               style={{
                 marginTop: '20px',
@@ -96,7 +91,6 @@ const Cart = ({ cartItems: initialCartItems }) => {
               Purchase
             </button>
 
-            {/* Show the Bill after purchase */}
             {showBill && (
               <div style={{ marginTop: '20px', padding: '10px', border: '1px solid #ddd' }}>
                 <h3>Bill Summary:</h3>
@@ -112,7 +106,7 @@ const Cart = ({ cartItems: initialCartItems }) => {
             )}
           </div>
         ) : (
-          <p>Your cart is empty.</p>
+          <p className='flex justify-center items-center'>Your cart is empty.</p>
         )}
       </div>
     </div>
@@ -120,4 +114,3 @@ const Cart = ({ cartItems: initialCartItems }) => {
 };
 
 export default Cart;
-

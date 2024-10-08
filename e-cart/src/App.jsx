@@ -24,6 +24,7 @@ const App = () => {
     alert('Added to cart ');
     setCart([...cart,product]);
   };
+
   
   return (
     <>
@@ -37,8 +38,9 @@ const App = () => {
         <Route path="/cart" element={<Cart cartItems={cartItems} />} /> 
         <Route path="/contact" element={<Contact />} />
         <Route path="/adminlogin" element={<Adminlogin />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<Product/>} />
       </Routes>
+    
     </>
   );
 };

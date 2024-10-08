@@ -1,15 +1,15 @@
+
 import React, { useState } from 'react';
-import { addProduct } from '../../services/api'; 
+import { addproduct } from '../../services/api';
 const AddProduct = () => {
   const [product, setProduct] = useState({
     name: '',
-    description: '',
     price: 0,
     salePrice: 0,
     brand: '',
     size: '',
-    stock: 'in stock',
-  });
+    stock: 0,
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,7 +19,7 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await addProduct(product); 
+      await addproduct(product);
       alert('Product added successfully!');
     } catch (error) {
       console.error('Error uploading product:', error);
@@ -27,18 +27,19 @@ const AddProduct = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="name" value={product.name} onChange={handleChange} placeholder="Product Name" required />
-      <input type="text" name="brand" value={product.brand} onChange={handleChange} placeholder="Brand Name" />
-      <input type="number" name="price" value={product.price} onChange={handleChange} placeholder="Price" required />
-      <input type="number" name="salePrice" value={product.salePrice} onChange={handleChange} placeholder="Sale Price" />
-      <input type="text" name="size" value={product.size} onChange={handleChange} placeholder="Size" />
-      <select name="stock" value={product.stock} onChange={handleChange}>
-        <option value="in stock">In Stock</option>
-        <option value="out of stock">Out of Stock</option>
-      </select>
-      <button type="submit">Add Product</button>
-    </form>
+    <div className='w-screen h-screen flex justify-center items-center primary fnt text-xl'>
+
+      <form onSubmit={handleSubmit} className='flex flex-col h-[50%] w-[30%] justify-center items-center bg-gray-100 border-solid border-black rounded-md shadow-lg gap-[1rem]'>
+        <input type="text" name="name" onChange={handleChange} placeholder="Product Name" required className='p-1 w-[70%] h-[3rem] bg-gray-200 focus:outline-none focus:border-b-2 focus:border-gray-600' />
+        <input type="text" name="brand" onChange={handleChange} placeholder="Brand Name" className='p-1 w-[70%] h-[3rem] bg-gray-200 focus:outline-none focus:border-b-2 focus:border-gray-600' />
+        <input type="number" name="price" onChange={handleChange} placeholder="Price" required className='p-1 w-[70%] h-[3rem] bg-gray-200 focus:outline-none focus:border-b-2 focus:border-gray-600' />
+        <input type="number" name="salePrice" onChange={handleChange} placeholder="Sale Price" className='p-1 w-[70%] h-[3rem] bg-gray-200 focus:outline-none focus:border-b-2 focus:border-gray-600' />
+        <input type="text" name="size" onChange={handleChange} placeholder="Size" className='p-1 w-[70%] h-[3rem] bg-gray-200 focus:outline-none focus:border-b-2 focus:border-gray-600' />
+        <input type="text" name="stock" onChange={handleChange} placeholder="Stock" className='p-1 w-[70%] h-[3rem] bg-gray-200 focus:outline-none focus:border-b-2 focus:border-gray-600' />
+        
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
   );
 };
 

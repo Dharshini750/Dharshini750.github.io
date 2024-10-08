@@ -1,39 +1,28 @@
-// require('dotenv').config()
-// const express = require('express')
-// const cors = require('cors')
-// const app = express()
-// const dbConn = require('./config/db')
-// const Product = require('./routes/productRoutes')
-// app.use(express.json())
-// app.use(cors())
-// const port = process.env.PORT || 7778
-// app.use('/products', Products)
-
-
-// app.get('/', (req, res) => {
-//     res.status(400).json("Welcome")
-// })
-
-// app.listen(port, () => {
-//     console.log(`Server running in : ${port}`)
-// })
 const express = require('express');
-const cors = require('cors');
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const productRoutes = require('./routes/productRoutes'); // Ensure this is correct
+const dbConn = require('./config/db')
+const cors = require('cors');
+const productRoutes = require('./routes/productRoutes');
+const userRoutes = require ('./routes/userRoutes')
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+    res.status(200).json("Welcome")
+})
+app.use('/products', productRoutes);
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log('MongoDB connected successfully'))
+.catch(err => console.log('MongoDB connection error:', err));
 
-// Use the product routes
-app.use('/products', productRoutes); // Use the right route here
+app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
-
-mongoose.connect(process.env.MONGOURL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
-    })
-    .catch(err => console.log(err));
+app.listen(PORT, () => {
+    console.log(`Server running in : ${PORT}`)
+})
 

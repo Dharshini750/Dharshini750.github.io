@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/productModel'); 
+const Product = require('../models/productModel');
 
 // Add Product
 router.post('/addProduct', async (req, res) => {
@@ -22,10 +22,17 @@ router.post('/addProduct', async (req, res) => {
     res.status(500).json({ error: 'Failed to add product' });
   }
 });
-
+router.get('/all', async (req, res) => {
+  try {
+    const fetchproducts = await Product.find()
+    res.status(200).json(fetchproducts)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
 // Edit Product
 router.put('/editProduct/:id', async (req, res) => {
-  const { id } = req.params; 
+  const { id } = req.params;
   const { name, price, salePrice, brand, size, stock } = req.body;
 
   try {
